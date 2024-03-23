@@ -7,7 +7,7 @@ class Util:
         return decoded_string
     
     def isValidFileType(path):
-        validFileTypes = ["py", "js", "kt", "java", "yml"]
+        validFileTypes = ["py", "js", "kt", "java", "yml", ".production"]
 
         if ('.' in path):
             s = path.split('.')

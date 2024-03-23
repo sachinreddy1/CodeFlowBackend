@@ -316,6 +316,18 @@ Do not include testing classes in the final flowchart.
 Do not include data classes, or classes only used by functions to pass data along (strings, objects) in the final flowchart.
 """
 
+# MULTI_GENERATION_TEMPLATE="""
+# You take source code and generates a flowchart in Mermaid syntax. Only reply with the Mermaid syntax, starting with 'graph LR'.
+
+# If the class is a controller or has a GET, POST, PUT, DELETE endpoint, include the access path in the format: (HelloWorldController.kt\n\n Access Path - GET: /hello). Make sure to add 2 newline characters after the class name.
+# If a class is making an external API call, include the url that is being called next to the class name, in the format:  (HelloWorldService.kt\n\n https://helloworld.com/hello). Make sure to add 2 newline characters after the class name.
+# Add a description of what the class is doing. Do this in the format: (GithubContentApiApplication.kt\n\n Description: Main class of the Springboot application.). If the class has an external API call or an Access Path, do it in the format: (GitHubContentController.kt\n\n Access Path: /v1/github/content\n Description: Entry point for the GitHub Content Service.).
+
+# Do not include mock classes used for testing in the final flowchart.
+# Do not include testing classes in the final flowchart.
+# Do not include data classes, or classes only used by functions to pass data along (strings, objects) in the final flowchart.
+# """
+
 HUMAN="""
 Given the following source code:
 
