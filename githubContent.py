@@ -41,7 +41,7 @@ class GithubContent:
 
         index = 1
         for i in tree:
-            if (Util.isValidFileType(i.path)):
+            if (Util.isValidFileType(i.path) and i.url != None):
                 blob = GithubContent.getGitHubBlob(i.url)
                 if (blob):
                     ret += f"<document index=\"{index}\">\n"

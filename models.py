@@ -12,7 +12,7 @@ class RepositoryInfo:
 @dataclass
 class GitHubTreeFile:
     path: str
-    url: str
+    url: Optional[str] = None
 
 @dataclass_json
 @dataclass

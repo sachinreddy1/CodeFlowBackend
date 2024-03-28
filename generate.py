@@ -4,6 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from constants import SINGLE_GENERATION_TEMPLATE, SINGLE_GENERATION_HUMAN, MULTI_GENERATION_TEMPLATE, MULTI_GENERATION_HUMAN
 from githubContent import GithubContent
 from krokiClient import KrokiClient
+from anthropic import BadRequestError
 
 # from langchain_google_genai import ChatGoogleGenerativeAI
 # from langchain_core.messages import HumanMessage, SystemMessage
@@ -27,6 +28,7 @@ class Generator:
         system = (SINGLE_GENERATION_TEMPLATE)
         prompt = ChatPromptTemplate.from_messages([("system", system), ("human", SINGLE_GENERATION_HUMAN)])
         chain = prompt | chat
+        
         response = chain.invoke({"code": code})
 
         # model = ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=, convert_system_message_to_human=True)
