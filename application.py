@@ -10,10 +10,10 @@ load_dotenv()
 anthropic_api_key = os.getenv('ANTHROPIC_API_KEY')
 os.environ["ANTHROPIC_API_KEY"] = anthropic_api_key
 
-app = Flask(__name__)
-CORS(app)
+application = app = Flask(__name__)
+CORS(application)
 
-@app.route('/v1/generate', methods=['POST'])
+@application.route('/v1/generate', methods=['POST'])
 def generate():
     if not request.json:
         return jsonify({'error': 'Request body must be JSON'}), 400
@@ -26,5 +26,9 @@ def generate():
     repos: List[RepositoryInfo] = [RepositoryInfo(**item) for item in data]
     return Generator.generateDiagram(repos)
 
+@application.route('/')
+def hello_world():
+    return 'Hello, World!'
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    application.run(debug=True)

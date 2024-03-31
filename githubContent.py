@@ -36,7 +36,7 @@ class GithubContent:
         ret = f"<repository index=\"{i}\">\n"
 
         ret += f"<repository_source>\n"
-        ret += f"{"{}/{}/{}".format(repo.owner, repo.repository, repo.branch)}\n"
+        ret += f"{repo.owner}/{repo.repository}/{repo.branch}\n"
         ret += f"</repository_source>\n"
 
         index = 1
