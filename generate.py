@@ -39,7 +39,7 @@ class Generator:
         #     ]
         # )
 
-        print(response.content)
+        # print(response.content)
         return KrokiClient.getMermaidSVG(response.content)
     
     def multi_generation(repos):
